@@ -11,6 +11,7 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$app->group(['prefix'=>'api'], function() use($app){
+    $app->get('/addmovie/{title}/{releaseYear}', 'MovieController@add');
+    $app->get('/removemovie/{title}', 'MovieController@remove');
 });
