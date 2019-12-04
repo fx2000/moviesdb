@@ -40,7 +40,7 @@ class MovieTest extends TestCase
    */
   public function testShouldDeleteMovie()
   {
-    $this->get("api/removemovie/Test", []);
+    $this->get("api/removemovie/TestMovie", []);
     $this->seeStatusCode(200);
   }
 }
