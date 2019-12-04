@@ -12,6 +12,8 @@ Removes movie from the DB, if the movie is not there display an error
   
 The project has been developed using the [Lumen Micro-Framework](https://lumen.laravel.com/).  
   
+The API is currently deployed in https://moviesdb.appstic.net/api/
+  
 ### Installation:  
 
 - Clone this repository into your server  
@@ -21,3 +23,4 @@ The project has been developed using the [Lumen Micro-Framework](https://lumen.l
 - Run 'php artisan migrate' to create all necessary tables
 - Place public folder in appropriate location and update settings accordingly
 - Unit tests are located in the tests folder, run them with 'vendor/bin/phpunit'
+  
