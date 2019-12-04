@@ -12,10 +12,8 @@ class MovieController extends Controller
   public function add(Request $request)
   {
     $movie = new Movie;
-
-    $movie->name= $request->name;
-    $movie->price = $request->price;
-    $movie->description= $request->description;
+    $movie->title= $request->title;
+    $movie->releaseYear = $request->releaseYear;
     $movie->save();
 
     return response()->json($movie);
@@ -24,10 +22,9 @@ class MovieController extends Controller
   // Delete movie
   public function remove($title)
   {
-    $movie = Movie::find($title);
-
+    $movie = Movie::where('title', $title);
     $movie->delete();
 
-    return response()->json('Movie removed successfully');
+    return response('The movie was removed successfully', 200);
   }
 }
