@@ -11,11 +11,11 @@ class MovieTest extends TestCase
    */
   public function testShoulReturnAllMovies()
   {
-    $this->get('/', []);
+    $this->get('/api', []);
     $this->seeStatusCode(200);
     $this->seeJsonStructure([
-      'data' => ['*' =>
-        [
+      'data' => [
+        '*' => [
           'title',
           'releaseYear',
           'created_at',
@@ -23,7 +23,8 @@ class MovieTest extends TestCase
           'links'
         ]
       ],
-      'meta' => ['*' => [
+      'meta' => [
+        '*' => [
           'total',
           'count',
           'per_page',
@@ -40,7 +41,7 @@ class MovieTest extends TestCase
    */
   public function testShouldReturnMovie()
   {
-    $this->get("1", []);
+    $this->get("/api/1", []);
     $this->seeStatusCode(200);
     $this->seeJsonStructure(
       ['data' =>
@@ -65,7 +66,7 @@ class MovieTest extends TestCase
       'releaseYear' => '1980'
     ];
     
-    $this->get("addmovie/", $parameters, []);
+    $this->get("api/addmovie/", $parameters, []);
     $this->seeStatusCode(200);
     $this->seeJsonStructure(
       ['data' =>
@@ -90,7 +91,7 @@ class MovieTest extends TestCase
       'releaseYear' => '1991'
     ];
 
-    $this->put("1", $parameters, []);
+    $this->put("api/1", $parameters, []);
     $this->seeStatusCode(200);
     $this->seeJsonStructure(
       ['data' =>
@@ -110,7 +111,7 @@ class MovieTest extends TestCase
    */
   public function testShouldDeleteMovie()
   {
-    $this->delete("1", [], []);
+    $this->delete("api/1", [], []);
     $this->seeStatusCode(410);
     $this->seeJsonStructure([
       'status',
