@@ -11,23 +11,16 @@ class MovieTest extends TestCase
    */
   public function testShouldCreateMovie()
   {
-    $parameters = [
-      'title'       => 'Terminator',
-      'releaseYear' => '1984'
-    ];
-    
-    $this->get("api/addmovie/", $parameters, []);
+   
+    $this->get("api/addmovie/Test/2019", []);
     $this->seeStatusCode(200);
-    $this->seeJsonStructure(
-      ['data' =>
-        [
-          'title',
-          'releaseYear',
-          'created_at',
-          'updated_at'
-        ]
-      ]    
-    );
+    $this->seeJsonStructure([
+      'id',
+      'title',
+      'releaseYear',
+      'created_at',
+      'updated_at'
+    ]);
   }
 
   /**
@@ -36,11 +29,7 @@ class MovieTest extends TestCase
    */
   public function testShouldDeleteMovie()
   {
-    $this->get("api/removemovie/Terminator", [], []);
+    $this->get("api/removemovie/Test", []);
     $this->seeStatusCode(200);
-    $this->seeJsonStructure([
-      'status',
-      'message'
-    ]);
   }
 }
