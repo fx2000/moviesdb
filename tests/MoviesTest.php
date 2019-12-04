@@ -12,7 +12,7 @@ class MovieTest extends TestCase
   public function testShouldCreateMovie()
   {
    
-    $this->get("api/addmovie/Test/2019", []);
+    $this->get("api/addmovie/TestMovie/2019", []);
     $this->seeStatusCode(200);
     $this->seeJsonStructure([
       'id',
@@ -21,6 +21,17 @@ class MovieTest extends TestCase
       'created_at',
       'updated_at'
     ]);
+  }
+
+  /**
+   * Add duplicate Movie
+   * /addmovie/{title}/{releaseYear} [GET]
+   */
+  public function testShouldNotCreateDuplicateMovie()
+  {
+   
+    $this->get("api/addmovie/TestMovie/2019", []);
+    $this->seeStatusCode(400);
   }
 
   /**
