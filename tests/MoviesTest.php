@@ -6,7 +6,7 @@ use Laravel\Lumen\Testing\DatabaseTransactions;
 class MovieTest extends TestCase
 {
   /**
-   * List all movies
+   * List All Movies
    * / [GET]
    */
   public function testShoulReturnAllMovies()
@@ -35,7 +35,7 @@ class MovieTest extends TestCase
   }
 
   /**
-   * Show movie details
+   * Show Movie Details
    * /id [GET]
    */
   public function testShouldReturnMovie()
@@ -55,7 +55,7 @@ class MovieTest extends TestCase
   }
 
   /**
-   * Add movie
+   * Add Movie
    * /addmovie/{title}/{releaseYear} [GET]
    */
   public function testShouldCreateMovie()
@@ -80,7 +80,7 @@ class MovieTest extends TestCase
   }
 
   /**
-   * Update movie
+   * Update Movie
    * /id [PUT]
    */
   public function testShouldUpdateMovie()
@@ -105,7 +105,7 @@ class MovieTest extends TestCase
   }
 
   /**
-   * Delete movie
+   * Delete Movie
    * /id [DELETE]
    */
   public function testShouldDeleteMovie()
